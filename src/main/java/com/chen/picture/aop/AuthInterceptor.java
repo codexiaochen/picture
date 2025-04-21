@@ -1,6 +1,5 @@
 package com.chen.picture.aop;
 
-import cn.hutool.core.util.StrUtil;
 import com.chen.picture.annotation.AuthCheck;
 import com.chen.picture.exception.BusinessException;
 import com.chen.picture.exception.ErrorCode;
