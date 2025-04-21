@@ -1,6 +1,8 @@
 package com.chen.picture.controller;
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.util.NumberUtil;
+import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.chen.picture.annotation.AuthCheck;
 import com.chen.picture.common.BaseResponse;
@@ -79,7 +81,7 @@ public class UserController {
         boolean result = userService.userLogout(request);
         return ResultUtils.success(result);
     }
-
+//--------------------------------------管理员功能--------------------------------------------------
     /**
      * 创建用户
      */
