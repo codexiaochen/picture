@@ -5,7 +5,7 @@ public interface UserContant {
     /**
      * 用户登录
      */
-    String LOGIN_LOGIN_STATE = "user_login";
+    String USER_LOGIN_STATE = "user_login";
 
     /**
      * 默认角色

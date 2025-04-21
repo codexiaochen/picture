@@ -37,4 +37,20 @@ public interface UserService extends IService<User> {
      */
     String getencrypt(String password);
 
+    /**
+     * 获取当前登录用户
+     *
+     * @param request
+     * @return
+     */
+    User getLoginUser(HttpServletRequest request);
+
+    /**
+     * 用户退出登录
+     *
+     * @param request
+     * @return
+     */
+    boolean userLogout(HttpServletRequest request);
+
 }

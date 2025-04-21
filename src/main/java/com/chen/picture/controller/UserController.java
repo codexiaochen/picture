@@ -1,15 +1,19 @@
 package com.chen.picture.controller;
 
+import cn.hutool.core.bean.BeanUtil;
+import com.chen.picture.annotation.AuthCheck;
 import com.chen.picture.common.BaseResponse;
 import com.chen.picture.common.ResultUtils;
+import com.chen.picture.contant.UserContant;
+import com.chen.picture.exception.ErrorCode;
+import com.chen.picture.exception.ThrowUtils;
 import com.chen.picture.model.dto.UserRegisterRequest;
 import com.chen.picture.model.dto.UserLoginRequest;
+import com.chen.picture.model.entity.User;
+import com.chen.picture.model.enums.UserRoleEnum;
 import com.chen.picture.model.vo.UserLoginVo;
 import com.chen.picture.service.UserService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -43,4 +47,34 @@ public class UserController {
         UserLoginVo userLoginVo = userService.userLogin(userLoginRequest.getUserAccount(), userLoginRequest.getUserPassword(), httpServletRequest);
         return ResultUtils.success(userLoginVo);
     }
+
+    /**
+     * 获取当前登录用户
+     *
+     * @param request
+     * @return
+     */
+    @GetMapping("/get/login")
+    public BaseResponse<UserLoginVo> getLoginUser(HttpServletRequest request) {
+        User loginUser = userService.getLoginUser(request);
+        UserLoginVo userLoginVo = new UserLoginVo();
+        BeanUtil.copyProperties(loginUser, userLoginVo);
+        userLoginVo.setUserRole(String.valueOf(loginUser.getUserRole()).toLowerCase());
+        return ResultUtils.success(userLoginVo);
+    }
+
+    /**
+     * 用户退出登录
+     *
+     * @param request
+     * @return
+     */
+    @PostMapping("/logout")
+    public BaseResponse<Boolean> userLogout(HttpServletRequest request) {
+        ThrowUtils.throwIf(request == null, ErrorCode.PARAMS_ERROR);
+        boolean result = userService.userLogout(request);
+        return ResultUtils.success(result);
+    }
+
+
 }

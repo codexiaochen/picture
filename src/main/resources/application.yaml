@@ -32,3 +32,10 @@ knife4j:
         api-rule: package
         api-rule-resources:
           - com.chen.picture.controller
+#  # Redis 配置
+#  redis:
+#    database: 1
+#    host: 192.168.2.200
+#    port: 6379
+#    timeout: 5000
+#    password: 123456
