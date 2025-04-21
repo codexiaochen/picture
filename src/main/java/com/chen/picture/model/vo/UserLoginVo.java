@@ -1,33 +1,25 @@
-package com.chen.picture.model;
+package com.chen.picture.model.vo;
 
-import com.baomidou.mybatisplus.annotation.*;
+import com.chen.picture.model.enums.UserRoleEnum;
+import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
-import lombok.Data;
 
-/**
- * 用户
- * @TableName user
- */
-@TableName(value ="user")
 @Data
-public class User implements Serializable {
+public class UserLoginVo implements Serializable {
+
+    private static final long serialVersionUID = -7308777909048949397L;
+
     /**
-     * id
+     * 用户 id
      */
-    @TableId(type = IdType.ASSIGN_ID) //主键生成策略
     private Long id;
 
     /**
      * 账号
      */
     private String userAccount;
-
-    /**
-     * 密码
-     */
-    private String userPassword;
 
     /**
      * 用户昵称
@@ -50,11 +42,6 @@ public class User implements Serializable {
     private String userRole;
 
     /**
-     * 编辑时间
-     */
-    private Date editTime;
-
-    /**
      * 创建时间
      */
     private Date createTime;
@@ -63,13 +50,4 @@ public class User implements Serializable {
      * 更新时间
      */
     private Date updateTime;
-
-    /**
-     * 是否删除
-     */
-    @TableLogic
-    private Integer isDelete;
-
-    @TableField(exist = false)
-    private static final long serialVersionUID = 1L;
 }

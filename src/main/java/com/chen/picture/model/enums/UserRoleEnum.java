@@ -1,6 +1,7 @@
-package com.chen.picture.model;
+package com.chen.picture.model.enums;
 
 import cn.hutool.core.util.ObjUtil;
+import com.baomidou.mybatisplus.annotation.EnumValue;
 import lombok.Getter;
 
 @Getter
@@ -10,7 +11,7 @@ public enum UserRoleEnum {
     ADMIN("管理员", "admin");
 
     private final String text;
-
+    @EnumValue
     private final String value;
 
     UserRoleEnum(String text, String value) {
