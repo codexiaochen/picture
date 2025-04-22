@@ -19,6 +19,8 @@ import com.chen.picture.model.vo.UserVO;
 import com.chen.picture.service.UserService;
 import com.chen.picture.mapper.UserMapper;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
@@ -42,6 +44,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
     @Resource
     private UserMapper userMapper;
+    @Autowired
+    @Resource
+    private StringRedisTemplate stringRedisTemplate;
+    private StringRedisTemplate stringRedisTemplate;
 
     /**
      * 注册功能

@@ -1,8 +1,6 @@
 package com.chen.picture.controller;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.util.NumberUtil;
-import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.chen.picture.annotation.AuthCheck;
 import com.chen.picture.common.BaseResponse;
@@ -17,6 +15,7 @@ import com.chen.picture.model.entity.User;
 import com.chen.picture.model.vo.UserLoginVo;
 import com.chen.picture.model.vo.UserVO;
 import com.chen.picture.service.UserService;
+import com.chen.picture.utils.UserHolder;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -68,6 +67,21 @@ public class UserController {
         userLoginVo.setUserRole(String.valueOf(loginUser.getUserRole()).toLowerCase());
         return ResultUtils.success(userLoginVo);
     }
+//    /**
+//     * 获取当前登录用户,基于拦截器实现
+//     *
+//     * @param request
+//     * @return
+//     */
+//    @GetMapping("/get/login")
+//    public BaseResponse<UserLoginVo> getLoginUser(HttpServletRequest request) {
+//        User loginUser = userService.getLoginUser(request);
+//        User user = UserHolder.getUser();
+//        UserLoginVo userLoginVo = new UserLoginVo();
+//        BeanUtil.copyProperties(user, userLoginVo);
+//        userLoginVo.setUserRole(String.valueOf(loginUser.getUserRole()).toLowerCase());
+//        return ResultUtils.success(userLoginVo);
+//    }
 
     /**
      * 用户退出登录
