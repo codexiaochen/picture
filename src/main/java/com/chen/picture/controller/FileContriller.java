@@ -28,7 +28,7 @@ public class FileContriller {
      * @return
      */
     @AuthCheck(mustRole = UserContant.ADMIN_ROLE)
-    @PostMapping("/test/upload")
+    @PostMapping("/test/upload")            // @RequestParam 用于提取单个参数，@RequestPart 用于处理文件或复杂对象
     public BaseResponse<String> testUploadFile(@RequestPart("file") MultipartFile multipartFile) {
         // 文件目录
         String filename = multipartFile.getOriginalFilename();
@@ -36,8 +36,8 @@ public class FileContriller {
         File file = null;
         try {
             // 上传文件
-            file = File.createTempFile(filepath, null);
-            multipartFile.transferTo(file);
+            file = File.createTempFile(filepath, null); //创建一个临时文件
+            multipartFile.transferTo(file); //将文件存储到临时文件中
             cosManager.putObject(filepath, file);
             // 返回可访问地址
             return ResultUtils.success(filepath);

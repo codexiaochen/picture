@@ -1,10 +1,10 @@
 package com.chen.picture.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.chen.picture.model.dto.UserQueryRequest;
+import com.chen.picture.model.dto.user.UserQueryRequest;
 import com.chen.picture.model.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.chen.picture.model.dto.UserRegisterRequest;
+import com.chen.picture.model.dto.user.UserRegisterRequest;
 import com.chen.picture.model.vo.UserLoginVo;
 import com.chen.picture.model.vo.UserVO;
 

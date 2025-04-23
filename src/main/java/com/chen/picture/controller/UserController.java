@@ -10,12 +10,11 @@ import com.chen.picture.contant.UserContant;
 import com.chen.picture.exception.BusinessException;
 import com.chen.picture.exception.ErrorCode;
 import com.chen.picture.exception.ThrowUtils;
-import com.chen.picture.model.dto.*;
+import com.chen.picture.model.dto.user.*;
 import com.chen.picture.model.entity.User;
 import com.chen.picture.model.vo.UserLoginVo;
 import com.chen.picture.model.vo.UserVO;
 import com.chen.picture.service.UserService;
-import com.chen.picture.utils.UserHolder;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 

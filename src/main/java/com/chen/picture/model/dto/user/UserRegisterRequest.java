@@ -1,4 +1,4 @@
-package com.chen.picture.model.dto;
+package com.chen.picture.model.dto.user;
 
 import lombok.Data;
 
